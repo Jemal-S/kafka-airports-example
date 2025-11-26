@@ -3,9 +3,9 @@ import json
 
 consumer = KafkaConsumer(
     "airports",
-    bootstrap_servers="localhost:29092",
-    group_id="airport-consumer-group",
-    auto_offset_reset="earliest",
+    bootstrap_servers="localhost:9092",
+    group_id="airport-consumer-altitude-group",
+    auto_offset_reset="latest",
     value_deserializer=lambda v: json.loads(v.decode("utf-8"))
 )
 
