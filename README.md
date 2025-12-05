@@ -20,10 +20,15 @@ python -m venv .venv
 
 #### Install requirements from the file:
 ```
-pip instal -r requirements.txt
+pip install -r requirements.txt
+```
+### 3. Create the topics
+
+```
+docker exec -it broker /opt/kafka/bin/kafka-topics.sh --create --topic airports-partitions --partitions 1 --replication-factor 1 --bootstrap-server localhost:9092
 ```
 
-### 3. Run the scripts
+### 4. Run the scripts
 
 Open a new terminal and run:
 ```
@@ -35,4 +40,4 @@ Open another terminal and run:
 python producer.py
 ```
 
-After running the producer, you should see the consumer receiveing the data sent by him.
+After running the producer, you should see the consumer receiving the data sent by him.

@@ -8,7 +8,7 @@ producer = KafkaProducer(
 
 topic = "airports"
 
-with open("airports.txt", "r", encoding="utf-8") as file:
+with open("../data/airports.txt", "r", encoding="utf-8") as file:
     for line in file:
         row = line.strip().split(",")
 
@@ -28,7 +28,7 @@ with open("airports.txt", "r", encoding="utf-8") as file:
 
         producer.send(topic, message)
         print("Sent ->", message["name"], "(", message["altitude_ft"], "ft )")
-        time.sleep(1)  # Delay 1 second between messages
+        time.sleep(1)  # Delay 1 second between messages to simulate streaming
 
 producer.flush()
 print("Finished streaming file")
